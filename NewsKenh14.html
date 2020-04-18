@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bootstrap Example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<style type="text/css">
+		.banner{
+			background-image: url(Cap1.png);
+			height: 200px;
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+		.menu {
+			height: 50px;
+			line-height: 50px;
+			background-color: brown;
+		}
+		.container a{
+			text-decoration: none;
+			color: #fff;
+			font-size: 16px;
+			padding: 0 20px;
+		}
+		.menu.menuden {
+			position: fixed;
+			z-index: 9;
+			width: 100%;
+			top: 0;
+			background-color: black;
+			transition: 1s;
+		}
+		.chungtoi.giuquangcao {
+			position: fixed;
+			top: 50px;
+		}
+		.s3{
+			transform: translateY(200px);
+			opacity: 0;
+		}
+		.s3.keolen{
+			transform: translateY(0);
+			transition: 1s;
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	<div class="banner"></div>
+	<div class="menu">
+		<div class="container">
+			<a href=""> Star </a>
+			<a href=""> TV Show </a>
+			<a href=""> Ciné </a>
+			<a href=""> Music </a>
+			<a href=""> Fashion </a>
+			<a href=""> Đời sống </a>
+			<a href=""> Thời trang </a>	
+			<a href=""> Star </a>
+			<a href=""> TV Show </a>
+			<a href=""> Ciné </a>
+			<a href=""> Music </a>
+		</div>
+	</div>
+	<section class="noidung">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8 ndtrai">
+					<img src="cap.png" alt="" class="img-fluid">
+					<img src="Capture2.png" alt="" class="img-fluid">
+					<img src="Capture3.png" alt="" class="img-fluid s3">
+					<img src="cap.png" alt="" class="img-fluid">
+					<img src="Capture2.png" alt="" class="img-fluid">
+					<img src="Capture3.png" alt="" class="img-fluid">
+					<img src="cap.png" alt="" class="img-fluid">
+					<img src="Capture2.png" alt="" class="img-fluid">
+					<img src="Capture3.png" alt="" class="img-fluid">
+					<img src="cap.png" alt="" class="img-fluid">
+					<img src="Capture2.png" alt="" class="img-fluid">
+					<img src="Capture3.png" alt="" class="img-fluid">
+				</div>
+				<div class="col-sm-4 ndphai">
+					<div class="tren">
+						<img src="Capture4.png" alt="" class="img-fluid">
+					</div>				
+					<div class="chungtoi">
+						<img src="Capture5.png" alt="" class="img-fluid">
+					</div>
+					<div class="duoi">
+						<img src="Capture7.png" alt="" class="img-fluid">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script type="text/javascript">
+		document.addEventListener("DOMContentLoaded" , function(){
+			var menuden = document.querySelector('.menu');
+			trangthaimenuden = 'Lan1';
+			vitrimenuden = menuden.offsetTop;
+
+			var quangcao = document.querySelector('.chungtoi');
+			trangthaiquangcao = 'Lan1';
+			vitriquangcao = quangcao.offsetTop + 150;
+			hetquangcao = quangcao.offsetTop + 150 + 500;
+			window.addEventListener('scroll',function(){
+				if (window.pageYOffset > vitrimenuden) {
+					if (trangthaimenuden == 'Lan1') {
+						trangthaimenuden = 'Lan2';
+						menuden.classList.toggle('menuden');
+					}
+				} else if (window.pageYOffset < vitrimenuden){
+					if (trangthaimenuden == 'Lan2') {
+						trangthaimenuden = 'Lan1';
+						menuden.classList.remove('menuden');
+					}
+				}
+
+				if ((window.pageYOffset > vitriquangcao) && (window.pageYOffset < hetquangcao)) {
+					if (trangthaiquangcao == 'Lan1') {
+						trangthaiquangcao = 'Lan2';
+						quangcao.classList.toggle('giuquangcao');
+					}
+				} else if ((window.pageYOffset < vitriquangcao) || (window.pageYOffset > hetquangcao)){
+					if (trangthaiquangcao == 'Lan2') {
+						trangthaiquangcao = 'Lan1';
+						quangcao.classList.remove('giuquangcao');
+					}
+				}
+			})
+
+		} , false)
+		
+
+	</script>
+</body>
+</html>
